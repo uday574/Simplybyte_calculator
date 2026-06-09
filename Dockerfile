@@ -1,6 +1,8 @@
-FROM node:20
-WORKDIR /calculator
-COPY calculator.html .
-COPY server.js .
-EXPOSE 5000 
-CMD [ "node","server.js" ]
+# Use official Nginx image
+FROM nginx:latest
+
+# Copy HTML file to Nginx server folder
+COPY . /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
